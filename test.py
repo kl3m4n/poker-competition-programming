@@ -32,13 +32,17 @@ class TestParsing(unittest.TestCase):
     )
 
 class TestHandCombos(unittest.TestCase):
-  def test_has_suite(self):
+  def test_has_simple_suite(self):
+    hand = Hand(["2S", "3S", "6S", "5H", "4S"])
+    self.assertTrue(hand.has_suite())
+
+  def test_has_suite_with_as(self):
     hand = Hand(["2S", "3S", "4S", "5H", "AS"])
-    self.assertTrue(hand.has_color())
+    self.assertTrue(hand.has_suite())
 
   def test_has_not_suite(self):
     hand = Hand(["2S", "9S", "4S", "5H", "AS"])
-    self.assertTrue(hand.has_color())
+    self.assertFalse(hand.has_suite())
 
   def test_has_color(self):
     hand = Hand(["2S", "3H", "5S", "9H", "KS"])
