@@ -19,4 +19,4 @@ And the `how_he_won` method, again for the game class, returns :
 - 4 for a color
 - 5 for a full
 - 6 for a square
--7 for a flush
+- 7 for a flush
