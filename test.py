@@ -1,19 +1,8 @@
 import unittest
 
+from card import Card
 from game import Game
 from hand import Hand
-
-"""
--1: draw, 0: p1, 1: p2
-victor_tests = [
-  [["2H", "3D", "5S", "9C", "KD"], ["2C", "3H", "4S", "8C", "AH"]],
-  [["2H", "4S", "4C", "2D", "4H"], ["2S", "8S", "AS", "QS", "3S"]],
-  [["2H", "3D", "5S", "9C", "KD"], ["2C", "3H", "4S", "8C", "KH"]],
-  [["2H", "3D", "5S", "9C", "KD"], ["2D", "3H", "5C", "9S", "KH"]]
-]
-"""
-
-from card import Card
 
 class TestParsing(unittest.TestCase):
   def test_input_len_assertion(self):
@@ -30,7 +19,6 @@ class TestParsing(unittest.TestCase):
 
   def test_has_to_classic_list_values(self):
     g = Game("2H 3D 5S 9C KD 2C 3H 4S 8C AH")
-
     self.assertEqual(
       g.p2.as_classic_numeric,
       [2, 3, 4, 8, 14]
@@ -38,7 +26,6 @@ class TestParsing(unittest.TestCase):
 
   def test_has_to_suite_list_values(self):
     g = Game("2H 3D 5S 9C KD 2C 3H 4S 8C AH")
-
     self.assertEqual(
       g.p2.as_suite_numeric,
       [1, 2, 3, 4, 8]
@@ -111,7 +98,6 @@ class TestHandCombos(unittest.TestCase):
 
   def test_simple_best_combo(self):
     hand = Hand(["4D", "AS", "9C", "2H", "4D"])
-
     self.assertEqual(
       hand.best_combo(),
       0 # is a pair
@@ -119,7 +105,6 @@ class TestHandCombos(unittest.TestCase):
 
   def test_complex_best_combo(self):
     hand = Hand(["AD", "AS", "9C", "9H", "9D"])
-
     self.assertEqual(
       hand.best_combo(),
       5 # is a full
@@ -127,7 +112,6 @@ class TestHandCombos(unittest.TestCase):
 
   def test_no_combo(self):
     hand = Hand(["9D", "AS", "8C", "7H", "2D"])
-
     self.assertEqual(
       hand.best_combo(),
       -1 # nothing
