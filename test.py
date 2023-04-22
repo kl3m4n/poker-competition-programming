@@ -124,7 +124,7 @@ class TestHandCombos(unittest.TestCase):
 class TestGame(unittest.TestCase):
   def test_highest_card(self):
     g = Game("2H 3D 5S 9C KD 2C 3H 4S 8C AH")
-    who_won = g.who_is_the_winner_my_boy()
+    who_won = g.who_is_the_winner_my_boyyy()
     self.assertEqual(
       who_won,
       1 # player 2
@@ -137,7 +137,7 @@ class TestGame(unittest.TestCase):
 
   def test_full_vs_color(self):
     g = Game("2H 4S 4C 2D 4H 2S 8S AS QS 3S")
-    who_won = g.who_is_the_winner_my_boy()
+    who_won = g.who_is_the_winner_my_boyyy()
     self.assertEqual(
       who_won,
       0 # player 1
@@ -150,7 +150,7 @@ class TestGame(unittest.TestCase):
 
   def test_deep_highest_card(self):
     g = Game("2H 3D 5S 9C KD 2C 3H 4S 8C KH")
-    who_won = g.who_is_the_winner_my_boy()
+    who_won = g.who_is_the_winner_my_boyyy()
     self.assertEqual(
       who_won,
       0 # player 1
@@ -163,7 +163,7 @@ class TestGame(unittest.TestCase):
 
   def test_draw(self):
     g = Game("2H 3D 5S 9C KD 2D 3H 5C 9S KH")
-    who_won = g.who_is_the_winner_my_boy()
+    who_won = g.who_is_the_winner_my_boyyy()
     self.assertEqual(
       who_won,
       -1 # draw

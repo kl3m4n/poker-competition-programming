@@ -12,7 +12,7 @@ class Game:
   def how_he_won(self):
     return max(self.p_combo)
 
-  def who_is_the_winner_my_boy(self):
+  def who_is_the_winner_my_boyyy(self):
     if len(set(self.p_combo)) > 1:
       return self.p_combo.index(self.how_he_won()) # crappy argmax function
     else:
